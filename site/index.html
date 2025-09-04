@@ -1,60 +1,158 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <link rel="icon" href="/assets/Logo.ico">
     <title>Lumi - Aponte, descubra e escolha </title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-   
-      <h1><a href="index.html"><img src="/assets/Group 28.png" width="90px" style="align-items: center;"></a></h1>
-       
-        
-        <nav>
-            <ul>
-              <div class="navbar">
-                <li><a href="sobre">Sobre o projeto</a></li>
-                <li><a href="funcionalidades.html">Funcionalidades</a></li>
-                <li><a href="beneficios.html">Benefícios</a></li>
-                <li><a href="planos.html" class="planos">Planos</a></li>
-              </div>
-                <button class="signup">Se inscreva</button>
-            </ul>
-        </nav>
+
+      <h1><a href="index.html"><img src="/assets/Group 28.png" width="90px"
+            style="align-items: center;"></a></h1>
+
+      <nav>
+        <ul>
+          <div class="navbar">
+            <li><a href="#sobre">Sobre o projeto</a></li>
+            <li><a href="#funcionalidades">Funcionalidades</a></li>
+            <li><a href="#beneficios">Benefícios</a></li>
+            <li><a href="#planos" class="planos_botao">Planos</a></li>
+          </div>
+          <button class="signup"
+            style="font-size: 18px; margin-right: 10px;">Inscreva-se</button>
+        </ul>
+      </nav>
     </header>
     <main>
       <!-- HERO -->
-       <section class="hero">
+      <section class="hero">
         <div class="texto_hero">
           <img class="pt2" src="/assets/Group 136.png">
           <img class="pt1" src="/assets/Group 185.png">
-          <h1>Escolha Consciente!</h1> 
-          <p>Saúde, praticidade e responsabilidade em cada escolha.</p>
-          <button class="signup">Se inscreva</button>
-          
-          
-        </div>
-       </section>
-       <section class="sobre">
-        <img src="" alt="">
-        <h1>O projeto</h1>
-        <h1 style="color: #7F3FBF ;">QUE ILUMINA ESCOLHAS!</h1>
-        <img src="" alt="">
-        <p></p>
-        <button class="sobre_projeto">SAIBA MAIS</button>
-       </section>
-       <hr>
-    </main>
-    <footer>
-      <h4>CONTATO</h4>
-      <p>lumibrasil.contato@gmail.com</p>
-      <p>(11)9874-1188 / (11)95367-3814</p>
-      <a href="https://www.instagram.com/lumi.brasil"><img src="/assets/instagram-new--v2.png"></a>
+          <h1>Escolha Consciente!</h1>
+          <p class="texto_hero">Saúde, praticidade e responsabilidade em cada
+            escolha.</p>
+          <button class="signup">Inscreva-se</button>
 
-    </footer>
-</body>
-</html>
+        </div>
+      </section>
+      <hr>
+      <section id="sobre" class="sobre">
+        <img class="img1_sob" src="/assets/Group 151.png" alt>
+        <h1 class="op">O projeto</h1>
+        <h1 class="qie">QUE ILUMINA ESCOLHAS!</h1>
+        <img class="img2_sob" src="/assets/Group 159.png">
+        <p><p>O aplicativo foi desenvolvido a partir da dificuldade que muitas
+            pessoas, principalmente idosos e pessoas com deficiência visual,
+            enfrentam para ler rótulos e compreender informações sobre os
+            produtos, uma barreira muitas vezes invisível que limita a autonomia
+            e pode gerar insegurança no momento da compra; pensando nisso, o
+            <em>Lumi</em>
+            foi criado para <strong>transformar esse processo em algo simples,
+              acessível e confiável</strong>, permitindo que qualquer pessoa
+            tenha <strong>clareza sobre o que está consumindo</strong>. Com o
+            auxílio da tecnologia, o aplicativo não apenas lê e interpreta os
+            rótulos, mas também <strong>traduz informações técnicas em linguagem
+              clara</strong>, oferecendo detalhes sobre ingredientes,
+            alergênicos, prazos de validade e valores nutricionais, garantindo
+            <strong>mais independência ao consumidor</strong> e promovendo
+            <strong>escolhas mais conscientes e seguras</strong>. Além de apoiar
+            os consumidores, o app também é uma <strong>ferramenta estratégica
+              para a indústria</strong>, oferecendo recursos de análise e gestão
+            da opinião dos clientes, permitindo que as empresas acompanhem
+            percepções em tempo real, identifiquem pontos de melhoria e
+            fortaleçam a confiança em seus produtos, criando um ciclo de
+            benefícios mútuos: <strong>consumidores mais bem informados e
+              satisfeitos</strong>, e empresas que se destacam pela
+            <strong>transparência e compromisso com a qualidade</strong>. Mais
+            do que um aplicativo, essa solução representa um passo importante
+            rumo à <strong>inclusão, ao respeito às diferenças e ao incentivo de
+              um mercado mais justo, acessível e humano</strong>.</p>
+        </section>
+        <hr>
+        <section id="funcionalidades" class="funcionalidades">
+          <h1>Descubra oque o <em style="color: #7F3FBF;">Lumi</em> <br> pode
+            fazer por você</h1>
+          <div class="funcionalidade-container">
+          <div class="caixinha-funcionalidade">
+            <h3 class="h3">Escaneador de Produtos</h3>
+            <p>Escaneie o código de barras e receba detalhes confiáveis sobre
+              composição e restrições alimentares.</p>
+          </div>
+          <div class="caixinha-funcionalidade">
+            <h3 class="h3">VagaLumi</h3>
+            <p>Um chat inteligente que tira dúvidas em tempo real, recomenda
+              produtos de acordo com suas necessidades e ainda auxilia no
+              cálculo de quantidades ideais, oferecendo alternativas seguras</p>
+          </div>
+          <div class="caixinha-funcionalidade">
+            <h3 class="h3">Histórico</h3>
+            <p>Armazena seus produtos pesquisados, tornando as consultas futuras rápidas e práticas.</p>
+          </div>
+          <div class="caixinha-funcionalidade">
+            <h3 class="h">Dashboards para a indústria</h3>
+            <p>Relatórios e indicadores sobre feedback e preferências dos consumidores.</p>
+          </div>
+        </div>
+          
+
+        </section>
+        <hr>
+        <section id="beneficios" class="beneficios">
+          <h1>Porque usar <em style="color: #7F3FBF;">Lumi</em> ?</h1>
+          <img class="img_benef" src="/assets/Group 162.png">
+          <div class="beneficios-container">
+            <div class="beneficio">Acessibilidade para idosos e pessoas com
+              deficiência visual.</div>
+            <div class="beneficio">Informações rápidas, confiáveis e fáceis de
+              entender.</div>
+            <div class="beneficio">Experiência de compra mais segura e
+              inclusiva.</div>
+            <div class="beneficio">Aproximação entre consumidor e indústria por
+              meio de dados e feedbacks.</div>
+            <div class="beneficio">Apoio às empresas no gerenciamento da
+              satisfação e opinião do cliente, impulsionando inovação e
+              confiança na marca.</div>
+          </div>
+        </section>
+        <section id="planos" class="planos">
+          <h1>Conheça nossos <strong
+              style="color: #7F3FBF;">planos!</strong></h1>
+          <div class="para"><img src="/assets/Ellipse 70.png" width="10px"> Para
+            Clientes </div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
+            veritatis ut modi earum ex dolorem.</p>
+          <div class="caixa_planos">
+            <p>Gratuito</p>
+          </div>
+          <div class="para"><img src="/assets/Ellipse 70.png" width="10px"> Para
+            Indústria </div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
+            veritatis ut modi earum ex dolorem.</p>
+          <div class="caixa_planos">
+            <p>Gratuito</p>
+          </div>
+        </section>
+        <section class="apresentação">
+          <h1>QUEM <img class="roxo" src="/assets/Line 10.png" width="100px">
+            SOMOS?</h1>
+          <img src alt>
+          <p></p>
+        </section>
+      </main>
+      <footer>
+        <h4>CONTATO</h4>
+        <p>lumibrasil.contato@gmail.com</p>
+        <p>(11)9874-1188 / (11)95367-3814</p>
+        <a href="https://www.instagram.com/lumi.brasil" target="_blank"><img
+            src="/assets/instagram-new--v2.png"></a>
+
+      </footer>
+    </body>
+  </html>
