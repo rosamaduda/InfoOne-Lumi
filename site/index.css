@@ -92,6 +92,7 @@ ul {
 .signup:hover {
   background-color: #000000;
   color: white;
+  border: 1px solid white;
 }
 
 hr{
