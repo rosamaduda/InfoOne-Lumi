@@ -203,6 +203,12 @@ html{
   margin-bottom: 70px;
 }
 
+.funcionalidades img{
+  margin-top: -900px;
+  margin-bottom: 40px;
+  margin-left: 40px;
+}
+
 
 .funcionalidades h1{
   text-align: center;
@@ -332,9 +338,47 @@ html{
 .roxo{
   margin-bottom: 4px
 }
+
+/* FOOTER */
+
+.linha {
+  border-top: 1px solid #666;
+  margin-bottom: 20px;
+}
+
 footer{
   background-color: black;
+  color: white;
 }
+
+footer h3{
+  font-size: 50px;
+  margin-left: 40px;
+}
+
+#contato{
+  margin-top: -45px;
+  margin-left: 40px;
+}
+.signup{
+  margin-top: 10px;
+  margin-bottom: 40px;   /* ajusta a altura */
+  margin-left: -280px;
+
+}
+.insta{
+  margin-top: -90px;
+  margin-bottom: 80px;
+  margin-left: 320px;
+
+}
+
+#lumi{
+  margin-top: -1200px;
+  margin-bottom: 95px;
+  margin-left: 1600px;
+}
+
 
 
 
