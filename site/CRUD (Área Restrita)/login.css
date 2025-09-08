@@ -89,12 +89,12 @@ header img{
     margin-top: -45px;
     margin-left: 40px;
   }
-  .signup{
+  .site{
     margin-top: 10px;
     margin-bottom: 40px;   /* ajusta a altura */
     margin-left: -260px;
   }
-  .signup {
+  .site {
     font-family: 'Poppins';
     background-color: #ffffff;
     color: #000;
@@ -109,7 +109,7 @@ header img{
     transition: background 0.5s ease;
   }
   
-  .signup:hover {
+  .site:hover {
     background-color: #d4d4d4;
     border: 1px solid white;
   }
