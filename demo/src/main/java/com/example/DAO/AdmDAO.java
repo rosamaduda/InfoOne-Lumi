@@ -1,10 +1,10 @@
-package com.example;
+package com.example.DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DAO {
+public class AdmDAO {
     // public boolean verificaAdmin(String login, String senha, String nome){
     //     Conexao conexao = new Conexao();
     //     Connection conn = conexao.conectar(); // abrindo a conexão com o banco de dados
@@ -33,7 +33,7 @@ public class DAO {
     //     }
     // } // verificaAdmin()  
 
-    public boolean verificaAdm(String usuario, String senha) {
+    public boolean validarSenhaAdm(String usuario, String senha) {
         Conexao conexao = new Conexao();
         Connection conn = conexao.conectar(); // abrindo a conexão com o banco de dados
         ResultSet rset = null;
@@ -46,17 +46,18 @@ public class DAO {
 
             // caso seja encontrado um usuário com o nome fornecido, cai no while
             while (rset.next()) { 
-                if (rset.getString("senha") == senha) { // verificando se a senha do usuario recebido é igual a senha recebida
+                if (rset.getString("senha").equals(senha)) { // verificando se a senha do usuario recebido é igual a senha recebida
                     return true;
                 }
             }
         } catch(SQLException sqle) {
             sqle.printStackTrace();
         } finally {
-            conexao.desconectar(conn);
-            return false;
+            conexao.desconectar(conn); // desconectando do BD
         }
-    } // verificaAdm()
+
+        return false; // retornando fora do try-catch, pois dentro dá erro de falta de retorno
+    } // validarSenhaAdm()
 
     public ResultSet buscarAdm() {
         Conexao conexao = new Conexao();
@@ -70,7 +71,7 @@ public class DAO {
         } catch (SQLException sqle) {
             sqle.printStackTrace();
         } finally {
-            conexao.desconectar(conn);
+            conexao.desconectar(conn); // desconectando do BD
             return rset;
         }  
     } // buscarAdm()
