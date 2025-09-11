@@ -12,27 +12,25 @@ public class Conexao {
         Connection conn = null;
         try{
             Class.forName("org.postgresql.Driver");
-            String usuario = dotenv.get("USUARIO");
-            String senha = dotenv.get("SENHA");
-            String url = dotenv.get("URL");
-            conn= DriverManager.getConnection(url,usuario,senha);
+            String usuario = dotenv.get("DB_USER");
+            String senha = dotenv.get("DB_PASSWORD");
+            String url = dotenv.get("DB_URL");
+            conn = DriverManager.getConnection(url, usuario, senha);
             System.out.println("Conexão estabelecida com sucesso!");
-    }catch (SQLException e) {
-            System.out.println("Erro ao conectar ao banco de dados: " + e.getMessage());
-        }catch (ClassNotFoundException f) {
-            System.out.println("Driver JDBC não encontrado: " + f.getMessage());
+        }catch (SQLException sqle) {
+            System.out.println("Erro ao conectar ao banco de dados: " + sqle.getMessage());
+        }catch (ClassNotFoundException cnfe) {
+            System.out.println("Driver JDBC não encontrado: " + cnfe.getMessage());
         }finally{return conn;}
     }
 
-
-
-    public void desconecar(Connection conn){
+    public void desconectar(Connection conn){
         try{
-            if(conn!=null && !conn.isClosed()){
+            if(conn != null && !conn.isClosed()){
                 conn.close();
             }
-        }catch (SQLException e) {
-            e.getMessage();
+        }catch (SQLException sqle) {
+            sqle.printStackTrace();
         }
     }
     

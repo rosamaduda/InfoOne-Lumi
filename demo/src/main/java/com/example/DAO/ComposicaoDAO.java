@@ -1,5 +1,5 @@
 package com.example.DAO;
 
-public class ComposiçãoDAO {
+public class ComposicaoDAO {
     
 }
