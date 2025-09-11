@@ -39,7 +39,7 @@ public class AdmDAO {
         ResultSet rset = null;
 
         try {
-            String instrucaoQuery = "SELECT * FROM ADMINISTRADOR WHERE USUARIO = ?";
+            String instrucaoQuery = "SELECT senha FROM ADMINISTRADOR WHERE USUARIO = ?";
             PreparedStatement pstmt = conn.prepareStatement(instrucaoQuery); 
             pstmt.setString(1, usuario); // setando o parâmetro na instrução
             rset = pstmt.executeQuery(); // executando a query no BD
