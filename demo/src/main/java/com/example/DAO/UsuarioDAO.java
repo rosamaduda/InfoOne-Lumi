@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class UsuarioDAO {
 
     // INSERIR
-    public boolean inserir(String email, String cpf, String nome, String nome_sobrenome, Date data_nascimento, String senha, double altura, double peso) {
+    public boolean inserirUsuario(String email, String cpf, String nome, String nome_sobrenome, Date data_nascimento, String senha, double altura, double peso) {
         Conexao conexao = new Conexao();
         Connection conn = conexao.conectar(); // abrindo a conexão com o banco de dados
     
@@ -35,10 +35,10 @@ public class UsuarioDAO {
         } finally {
             conexao.desconectar(conn);
         }
-    } // inserir()
+    } // inserirUsuario()
 
     // ALTERAR
-    public int alterarCpf(String email, String cpf) {
+    public int alterarCpfUsuario(String email, String cpf) {
         Conexao conexao = new Conexao();
         Connection conn = conexao.conectar();
 
@@ -59,9 +59,9 @@ public class UsuarioDAO {
         } finally {
             conexao.desconectar(conn); // desconecta do BD
         }
-    } // alterarCpf()
+    } // alterarCpfUsuario()
 
-    public int alterarNome(String email, String nome) {
+    public int alterarNomeUsuario(String email, String nome) {
         Conexao conexao = new Conexao();
         Connection conn = conexao.conectar();
 
@@ -82,9 +82,9 @@ public class UsuarioDAO {
         } finally {
             conexao.desconectar(conn); // desconecta do BD
         }
-    } // alterarNome()
+    } // alterarNomeUsuario()
 
-    public int alterarSobrenome(String email, String sobrenome) {
+    public int alterarSobrenomeUsuario(String email, String sobrenome) {
         Conexao conexao = new Conexao();
         Connection conn = conexao.conectar();
 
@@ -105,9 +105,9 @@ public class UsuarioDAO {
         } finally {
             conexao.desconectar(conn); // desconecta do BD
         }
-    } // alterarCpf()
+    } // alterarCpfUsuario()
 
-    public int alterarDataNascimento(String email, Date data_nascimento) {
+    public int alterarDataNascimentoUsuario(String email, Date data_nascimento) {
         Conexao conexao = new Conexao();
         Connection conn = conexao.conectar();
 
@@ -128,9 +128,9 @@ public class UsuarioDAO {
         } finally {
             conexao.desconectar(conn); // desconecta do BD
         }
-    } // alterarCpf()
+    } // alterarCpfUsuario()
 
-    public int alterarSenha(String email, String senha) {
+    public int alterarSenhaUsuario(String email, String senha) {
         Conexao conexao = new Conexao();
         Connection conn = conexao.conectar(); // fazendo a conexao com o BD
 
@@ -150,9 +150,9 @@ public class UsuarioDAO {
         } finally {
             conexao.desconectar(conn); // desconecta do BD
         }
-    } // alterarSenha()
+    } // alterarSenhaUsuario()
 
-    public int alterarAltura(String email, double altura) {
+    public int alterarAlturaUsuario(String email, double altura) {
         Conexao conexao = new Conexao();
         Connection conn = conexao.conectar(); // conectando com o BD
 
@@ -172,9 +172,9 @@ public class UsuarioDAO {
         } finally {
             conexao.desconectar(conn); // desconecta do BD
         }
-    } // alterarAltura()
+    } // alterarAlturaUsuario()
 
-    public int alterarPeso(String email, double peso) {
+    public int alterarPesoUsuario(String email, double peso) {
         Conexao conexao = new Conexao();
         Connection conn = conexao.conectar();
 
@@ -194,7 +194,7 @@ public class UsuarioDAO {
         } finally {
             conexao.desconectar(conn); // desconecta do BD
         }
-    } // alterarPeso()
+    } // alterarPesoUsuario()
 
     // DELETE
     public boolean deletarUsuario(String email) {

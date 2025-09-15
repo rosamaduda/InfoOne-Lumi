@@ -1,5 +1,5 @@
 package com.example.DAO;
 
-public class ComposicaoDAO {
+public class UsuarioAlergiaDAO {
     
 }

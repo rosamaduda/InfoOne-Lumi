@@ -6,18 +6,18 @@ import java.sql.SQLException;
 
 public class AlergiaDAO {
     // INSERIR
-    public boolean inserir(String alergeno, String nome, String descricao) {
+    public boolean inserirAlergia(String alergeno, String nome, String descricao) {
         Conexao conexao = new Conexao();
         Connection conn = conexao.conectar(); // abrindo a conexão com o BD
 
         try {
-            String instrucaoSQL = "INSERT INTO alergia VALUES(?, ?, ?)";
+            String instrucaoSQL = "INSERT INTO alergia (alergeno, nome, descricao) VALUES(?, ?, ?)";
             PreparedStatement pstmt = conn.prepareStatement(instrucaoSQL);
             // setando os parâmetros da instrução
             pstmt.setString(1, alergeno);
             pstmt.setString(2, nome);
             pstmt.setString(3, descricao);
-            if (pstmt.executeUpdate() > 0) { // executando o comando
+            if (pstmt.executeUpdate() > 0) { // executando o comando e verificando o retorno
                 return true;
             } else {
                 return false;
@@ -28,7 +28,7 @@ public class AlergiaDAO {
         } finally {
             conexao.desconectar(conn); // fechando a conexão como BD
         }
-    } // inserir
+    } // inserirAlergia()
     
     // ALTERAR
     public int alterarAlergeno(int id, String alergeno) {
@@ -43,7 +43,7 @@ public class AlergiaDAO {
             pstmt.setString(1, alergeno); 
             pstmt.setInt(2, id);
 
-            if (pstmt.executeUpdate() > 0) {
+            if (pstmt.executeUpdate() > 0) { // executando o comando e verificando o retorno
                 return 1; // encontrou o registro e alterou
             } else {
                 return 0;  // o registro não foi encontrado
@@ -68,7 +68,7 @@ public class AlergiaDAO {
             pstmt.setString(1, nome); 
             pstmt.setInt(2, id);
 
-            if (pstmt.executeUpdate() > 0) {
+            if (pstmt.executeUpdate() > 0) { // executando o comando e verificando o retorno
                 return 1; // encontrou o registro e alterou
             } else {
                 return 0;  // o registro não foi encontrado
@@ -93,7 +93,7 @@ public class AlergiaDAO {
             pstmt.setString(1, descricao); 
             pstmt.setInt(2, id);
 
-            if (pstmt.executeUpdate() > 0) {
+            if (pstmt.executeUpdate() > 0) { // executando o comando e verificando o retorno
                 return 1; // encontrou o registro e alterou
             } else {
                 return 0;  // o registro não foi encontrado
@@ -104,7 +104,7 @@ public class AlergiaDAO {
         } finally {
             conexao.desconectar(conn);
         }
-    } // alterarDescricao()
+    } // alterarDescricaoAlergia()
 
     // DELETAR
     public int removerAlergia(int id) {
@@ -115,7 +115,7 @@ public class AlergiaDAO {
             String instrucaoSQL = "DELETE FROM alergia WHERE id = ?";
             PreparedStatement pstmt = conn.prepareStatement(instrucaoSQL);
             pstmt.setInt(1, id); // setando parametro na instrução
-            if (pstmt.executeUpdate() > 0) { // executando o comando SQL
+            if (pstmt.executeUpdate() > 0) { // // executando o comando e verificando o retorno
                 return 1; // conseguiu deletar
             } else {
                 return 0; // não encontrou o registro
