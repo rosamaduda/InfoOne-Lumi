@@ -1,6 +1,5 @@
 package com.example.DAO;
 
-import java.time.LocalDate;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -204,8 +203,16 @@ public class UsuarioDAO {
 
         try {
             String instrucaoSQL = "DELETE FROM usuario WHERE email = ?";
+            PreparedStatement pstmt = conn.prepareStatement(instrucaoSQL);
+            pstmt.setString(1, email);// setando parâmetro da instrução
+            if (pstmt.executeUpdate() > 0){
+                return true;
+            } else {
+                return false;
+            }
         } catch (SQLException sqle) {
             sqle.printStackTrace();
+            return false;
         } finally {
             conexao.desconectar(conn);
         }
