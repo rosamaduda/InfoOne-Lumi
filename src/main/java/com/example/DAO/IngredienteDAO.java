@@ -31,13 +31,19 @@ public class IngredienteDAO {
     } // inserir()
 
     // ALTERAR
-    public int alterarDescricaoIngrediente(int idString descricao) {
+    public int alterarDescricaoIngrediente(int id, String descricao) {
         Conexao conexao = new Conexao();
         Connection conn = conexao.conectar(); // abrindo a conexão com o BD
 
         try {
-            String instrucaoSQL = "UPDATE ingrediente SET descricao = ? WHERE "
+            String instrucaoSQL = "UPDATE ingrediente SET descricao = ? WHERE id = ?";
             PreparedStatement pstmt = conn.prepareStatement(instrucaoSQL);
+
+            if (pstmt.executeUpdate() > 0) { // executando o comando e verificando o retorno
+                return 1; // conseguiu realizar a alteração
+            } else {
+                return 0; // não encontrou o registro
+            }
         } catch (SQLException sqle) {
             sqle.printStackTrace();
             return -1; // caiu no catch

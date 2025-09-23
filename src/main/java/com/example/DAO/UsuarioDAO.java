@@ -3,7 +3,10 @@ package com.example.DAO;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.LinkedList;
 
 public class UsuarioDAO {
 
@@ -216,5 +219,34 @@ public class UsuarioDAO {
         } finally {
             conexao.desconectar(conn);
         }
-    }
+    } // deletarUsuario()
+
+    // SELECT
+    public List buscarUsuario() {
+        Conexao conexao = new Conexao();
+        Connection conn = conexao.conectar(); // abrindo a conexão com o BD
+        ResultSet rset = null;
+        List<Usuario> lista = new ArrayList<>();
+
+        try {
+            String instrucaoSQL = "SELECT * FROM usuario";
+            Statement stmt = conn.createStatement();
+            rset = stmt.executeQuery(instrucaoSQL);
+
+            while (rset.next()) {
+                Usuario usuario = new Usuario(rset.getString("email"), rset.getString("cpf"), rset.getString("nome"), 
+                                                rset.getString("nome_sobrenome"), rset.getDate("data_nascimento"), rset.getSenha("senha"), 
+                                                rset.getDouble("altura"), rset.getDouble("peso"), rset.getString("endereco_rua"),
+                                                rset.getString("endereco_uf"), rset.getString("endereco_cidade"), rset.getString("endereco_cep"),
+                                                rset.getString("endereco_rua"), rset.getInt("endereco_numero"));
+                lista.add(usuario);
+            }
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        } finally {
+            conn.desconectar(conn);
+            return lista;
+        }
+        
+    } // buscarUsuario()
 } // UsuarioDAO
