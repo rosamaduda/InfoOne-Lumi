@@ -72,8 +72,8 @@ public class UsuarioDAO {
             String instrucaoSQL = "UPDATE usuario SET nome = ? WHERE email = ?";
             PreparedStatement pstmt = conn.prepareStatement(instrucaoSQL);
             // setando parâmetros da instrução
-            pstmt.setString(1, email);
-            pstmt.setString(2, nome);
+            pstmt.setString(1, nome);
+            pstmt.setString(2, email);
             if (pstmt.executeUpdate() > 0) {
                 return 1; // alteração ocorreu com sucesso
             } else {
@@ -95,8 +95,8 @@ public class UsuarioDAO {
             String instrucaoSQL = "UPDATE usuario SET nome_sobrenome = ? WHERE email = ?";
             PreparedStatement pstmt = conn.prepareStatement(instrucaoSQL);
             // setando parâmetros da instrução
-            pstmt.setString(1, email);
-            pstmt.setString(2, sobrenome);
+            pstmt.setString(1, sobrenome);
+            pstmt.setString(2, email);
             if (pstmt.executeUpdate() > 0) {
                 return 1; // alteração ocorreu com sucesso
             } else {
@@ -118,8 +118,8 @@ public class UsuarioDAO {
             String instrucaoSQL = "UPDATE usuario SET data_nascimento = ? WHERE email = ?";
             PreparedStatement pstmt = conn.prepareStatement(instrucaoSQL);
             // setando parâmetros da instrução
-            pstmt.setString(1, email);
-            pstmt.setDate(2, data_nascimento);
+            pstmt.setDate(1, data_nascimento);
+            pstmt.setString(2, email);
             if (pstmt.executeUpdate() > 0) {
                 return 1; // alteração ocorreu com sucesso
             } else {
@@ -140,8 +140,8 @@ public class UsuarioDAO {
         try {
             String instrucaoSQL = "UPDATE usuario SET senha = ? WHERE email = ?";
             PreparedStatement pstmt = conn.prepareStatement(instrucaoSQL);
-            pstmt.setString(1, email);
-            pstmt.setString(2, senha);
+            pstmt.setString(1, senha);
+            pstmt.setString(2, email);
             if (pstmt.executeUpdate() > 0) {
                 return 1; // alteração ocorreu com sucesso
             } else {
@@ -162,8 +162,8 @@ public class UsuarioDAO {
         try {
             String instrucaoSQL = "UPDATE usuario SET altura = ? WHERE email = ?";
             PreparedStatement pstmt = conn.prepareStatement(instrucaoSQL);
-            pstmt.setString(1, email);
-            pstmt.setDouble(2, altura);
+            pstmt.setDouble(1, altura);
+            pstmt.setString(2, email);
             if (pstmt.executeUpdate() > 0) {
                 return 1; // alteração ocorreu com sucesso
             } else {
@@ -184,8 +184,8 @@ public class UsuarioDAO {
         try {
             String instrucaoSQL = "UPDATE usuario SET peso = ? WHERE email = ?";
             PreparedStatement pstmt = conn.prepareStatement(instrucaoSQL);
-            pstmt.setString(1, email);
-            pstmt.setDouble(2, peso);
+            pstmt.setDouble(1, peso);
+            pstmt.setString(2, email);
             if (pstmt.executeUpdate() > 0) {
                 return 1; // alteração ocorreu com sucesso
             } else {
@@ -231,7 +231,7 @@ public class UsuarioDAO {
         try {
             String instrucaoSQL = "SELECT * FROM usuario";
             Statement stmt = conn.createStatement();
-            rset = stmt.executeQuery(instrucaoSQL);
+            rset = stmt.executeQuery(instrucaoSQL); // executando a query
 
             while (rset.next()) {
                 Usuario usuario = new Usuario(rset.getString("email"), rset.getString("cpf"), rset.getString("nome"), 
@@ -244,7 +244,7 @@ public class UsuarioDAO {
         } catch (SQLException sqle) {
             sqle.printStackTrace();
         } finally {
-            conn.desconectar(conn);
+            conn.desconectar(conn); // desconectando o BD
             return lista;
         }
         

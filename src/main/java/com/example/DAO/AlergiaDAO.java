@@ -3,6 +3,7 @@ package com.example.DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class AlergiaDAO {
     // INSERIR
@@ -127,4 +128,28 @@ public class AlergiaDAO {
             conexao.desconectar(conn);
         }
     } // removerAlergia()
+
+    // SELECT
+    public List buscarAlergia() {
+        Conexao conexao = new Conexao();
+        Connection conn = conexao.conectar(); // abrindo a conexão com o BD
+        ResultSet rset = null;
+        List<Alergia> lista = new ArrayList<>();
+
+        try {
+            String instrucaoSQL = "SELECT * FROM alergia";
+            Statement stmt = conn.createStatement();
+            rset = stmt.executeQuery(); // realizando a query
+
+            while (rset.next()) {
+                Alergia alergia = new Alergia(rset.getInt("id"), rset.getString("alergeno"), rset.getString("nome"), rset.getString("descricao"));
+                lista.add(alergia);
+            }
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        } finally {
+            conexao.desconectar(conn); // desconectando o BD
+            return lista;
+        }
+    } // buscarAlergia()
 }

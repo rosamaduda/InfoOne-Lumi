@@ -1,12 +1,13 @@
 package com.example.DAO;
 
+import java.beans.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class IngredienteDAO {
     // INSERIR
-    public boolean inserir(String descricao) {
+    public boolean inserirIngrediente(String descricao) {
         Conexao conexao = new Conexao();
         Connection conn = conexao.conectar(); // abrindo a conexão com o BD
 
@@ -28,7 +29,7 @@ public class IngredienteDAO {
         } finally {
             conexao.desconectar(conn); // desconectando o BD
         }
-    } // inserir()
+    } // inserirIngrediente()
 
     // ALTERAR
     public int alterarDescricaoIngrediente(int id, String descricao) {
@@ -48,7 +49,7 @@ public class IngredienteDAO {
             sqle.printStackTrace();
             return -1; // caiu no catch
         }
-    }
+    } /// alterarDescricaoIngrediente()
 
     // DELETAR
     public int removerIngrediente(int id) {
@@ -70,5 +71,27 @@ public class IngredienteDAO {
         } finally {
             conexao.desconectar(conn);
         }
-    }
-}
+    } // removerIngrediente()
+
+    // SELECT
+    public List buscarIngrediente() {
+        Conexao conexao = new Conexao();
+        Connection conn = conexao.conectar(); // abrindo a conexão com o BD
+
+        try {
+            String instrucaoSQL = "SELECT * FROM ingrediente";
+            Statement stmt = conn.createStatement();
+            rset = stmt.executeQuery(); // executando a query
+
+            while (rset.next()) {
+                Ingrediente ingrediente = new Ingrediente(rset.getInt("id"), rset.getString("descricao"));
+                lista.add(ingrediente);
+            }
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        } finally {
+            conexao.desconectar(conn);
+            return lista;
+        }
+    } // buscarIngrediente()
+} // IngredienteDAO
