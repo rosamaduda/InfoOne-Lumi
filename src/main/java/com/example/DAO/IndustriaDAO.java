@@ -1,25 +1,25 @@
-
+package main.java.com.example.DAO;
 
 public class IndustriaDAO {
     // INSERIR
-    public boolean inserirIndustria(String cnpj, String nome, String objetivo, String email) {
+    public boolean inserirIndustria(String cnpj, String nome, String objetivo, String email, String senha) {
         Conexao conexao = new Conexao();
-        Connection conn = conexao.conectar(); // onectando o BD
+        Connection conn = conexao.conectar(); // conectando o BD
 
         try {
-            String instrucaoSQL = "INSERT INTO usuario VALUES(?, ?, ?, ?)";
+            String instrucaoSQL = "INSERT INTO usuario VALUES(?, ?, ?, ?, ?)";
             PreparedStatement pstmt = conn.prepareStatement(instrucaoSQL);
             // setando parâmetros da instrução
             pstmt.setString(1, cnpj);
             pstmt.setString(2, nome);
             pstmt.setString(3, objetivo);
             pstmt.setString(4, email);
+            pstmt.setString(5, senha);
             if (pstmt.executeUpdate() > 0) {
                 return true;
             } else {
                 return false;
             }
-
         } catch (SQLException sqle) {
             sqle.printStackTrace();
             return false;
@@ -160,8 +160,12 @@ public class IndustriaDAO {
 
             while (rset.next()) {
                 Industria industria = new Industria(rset.getInt("id"), rset.getString("cnpj"), rset.getString("objetivo"), rset.getString("email"));
-                
+                lista.add(industria); // adicionando o objeto à lista
             }
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        } finally {
+            conexao.desconectar(conn); // desconectando o BD
         }
     }
 } // IndustriaDAO
